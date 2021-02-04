@@ -20,6 +20,7 @@ import java.util.*
 class CreateTaskActivity : AppCompatActivity() {
     private val repo = ApiRepository
     private var dialog: ProgressDialog? = null
+    lateinit var task: TaskModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,14 +33,18 @@ class CreateTaskActivity : AppCompatActivity() {
         ApiRepository.createRetrofitWithAuth(token!!)
 
         val bundle = intent.getBundleExtra(UPDATE_KEY)
-        val task = bundle!!.getSerializable(UPDATE_KEY) as? TaskModel
-        Log.d(MY_LOG, "$task")
 
-        if (task != null) {
-            btn_update_task.visibility = View.VISIBLE
+        if (bundle != null) {
+            task = bundle.getSerializable(UPDATE_KEY) as TaskModel
             btn_new_task.visibility = View.GONE
+            btn_update_task.visibility = View.VISIBLE
             create_task_title.editText?.text = task.title.toEditable()
             create_task_content.editText?.text = task.content.toEditable()
+
+        } else{
+            btn_new_task.visibility = View.VISIBLE
+            btn_update_task.visibility = View.GONE
+
         }
 
         btn_new_task.setOnClickListener {
@@ -75,7 +80,7 @@ class CreateTaskActivity : AppCompatActivity() {
                 if (edit_crTitle.length() > 0 && edit_crContent.length() > 0) {
 
                     val newTask = TaskRequestDto(
-                        id = task!!.id,
+                        id = task.id,
                         title = create_task_title.editText?.text.toString(),
                         content = create_task_content.editText?.text.toString(),
                         createdDate = Date().time.toString()
@@ -94,7 +99,7 @@ class CreateTaskActivity : AppCompatActivity() {
                             dialog?.dismiss()
                             toast(getString(R.string.error_connect))
                         }
-                    bundle.clear()
+                    bundle?.clear()
                 }else {
                     toast(R.string.error_create_task_empty)
                 }

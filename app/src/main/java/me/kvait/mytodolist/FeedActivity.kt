@@ -51,8 +51,6 @@ class FeedActivity : AppCompatActivity(), CoroutineScope by MainScope() {
         }
 
         fab.setOnClickListener {
-            btn_new_task.visibility = View.VISIBLE
-            btn_update_task.visibility = View.GONE
            start<CreateTaskActivity>()
         }
     }

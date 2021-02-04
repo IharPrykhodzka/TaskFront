@@ -29,6 +29,12 @@
     <string name="task_created_successfully">Задача создана</string>
     <string name="task_updated_successfully">Задача обновлена</string>
     <string name="error_connect">Ошибка соединения</string>
+    <string name="warning">Внимание !!!</string>
+    <string name="question_for_delete_task">Вы действительно хотите удалить эту задачу?</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="canceled">Отменено</string>
+    <string name="deleted">Удалено</string>
 
 
 </resources>

@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="55dp"
-    android:theme="@style/Theme.MyToDoList"
-    style="@style/Theme.MyToDoListNoAB"
+    android:theme="@style/Theme.MaterialComponents.DayNight"
     tools:context=".MainActivity">
 
     <com.google.android.material.textfield.TextInputLayout

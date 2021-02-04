@@ -54,6 +54,8 @@ dependencies {
     // Logging
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
 
+    implementation 'com.github.satoshun.coroutine.autodispose:autodispose:0.3.1'
+
     def version = "2.1.1"
     implementation "com.louiscad.splitties:splitties-toast:$version"
     implementation "com.louiscad.splitties:splitties-activities:$version"
