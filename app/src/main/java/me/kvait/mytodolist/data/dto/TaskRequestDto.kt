@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName
 class TaskRequestDto(
         @SerializedName("id")
         val id: Int,
+        @SerializedName("user_id")
+        val user_id: Int,
         @SerializedName("title")
         val title: String,
         @SerializedName("content")

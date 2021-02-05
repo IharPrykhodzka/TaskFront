@@ -13,7 +13,7 @@
         android:id="@+id/case_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_login"
+        android:hint="@string/enter_email"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintBottom_toTopOf="@+id/case_password"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:inputType="text"
-            android:maxLength="10" />
+            android:maxLength="24" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

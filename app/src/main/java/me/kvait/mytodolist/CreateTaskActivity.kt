@@ -30,6 +30,8 @@ class CreateTaskActivity : AppCompatActivity() {
 
         val token = getSharedPreferences(API_RESPONSE_SHARED_FILE, MODE_PRIVATE)
             .getString(AUTHENTICATED_SHARED_KEY, "")
+        val userId = getSharedPreferences(API_RESPONSE_SHARED_FILE, MODE_PRIVATE)
+            .getInt(AUTHENTICATED_ID, 0)
         ApiRepository.createRetrofitWithAuth(token!!)
 
         val bundle = intent.getBundleExtra(UPDATE_KEY)
@@ -52,6 +54,7 @@ class CreateTaskActivity : AppCompatActivity() {
                 if (edit_crTitle.length() > 0 && edit_crContent.length() > 0) {
                     val newTask = TaskRequestDto(
                         id = 0,
+                        user_id = userId,
                         title = create_task_title.editText?.text.toString(),
                         content = create_task_content.editText?.text.toString(),
                         createdDate = Date().time.toString()
@@ -81,6 +84,7 @@ class CreateTaskActivity : AppCompatActivity() {
 
                     val newTask = TaskRequestDto(
                         id = task.id,
+                        user_id = task.user_id,
                         title = create_task_title.editText?.text.toString(),
                         content = create_task_content.editText?.text.toString(),
                         createdDate = Date().time.toString()

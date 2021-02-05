@@ -18,6 +18,7 @@ import me.kvait.mytodolist.adapter.TaskAdapter
 import me.kvait.mytodolist.api.ApiRepository
 import me.kvait.mytodolist.data.dto.TaskResponseDto.Companion.toModel
 import me.kvait.mytodolist.utils.API_RESPONSE_SHARED_FILE
+import me.kvait.mytodolist.utils.AUTHENTICATED_ID
 import me.kvait.mytodolist.utils.AUTHENTICATED_SHARED_KEY
 import me.kvait.mytodolist.utils.myProgressDialog
 import splitties.activities.start
@@ -37,9 +38,9 @@ class FeedActivity : AppCompatActivity(), CoroutineScope by MainScope() {
             when (it.itemId) {
                 R.id.btn_logOut -> {
                     getSharedPreferences(API_RESPONSE_SHARED_FILE, Context.MODE_PRIVATE)
-                            .edit()
-                            .clear()
-                            .apply()
+                        .edit()
+                        .clear()
+                        .apply()
 
                     val mainIntent = Intent(this@FeedActivity, MainActivity::class.java)
                     startActivity(mainIntent)
@@ -51,14 +52,16 @@ class FeedActivity : AppCompatActivity(), CoroutineScope by MainScope() {
         }
 
         fab.setOnClickListener {
-           start<CreateTaskActivity>()
+            start<CreateTaskActivity>()
         }
     }
 
     override fun onStart() {
         super.onStart()
         val token = getSharedPreferences(API_RESPONSE_SHARED_FILE, MODE_PRIVATE)
-                .getString(AUTHENTICATED_SHARED_KEY, "")
+            .getString(AUTHENTICATED_SHARED_KEY, "")
+        val userId = getSharedPreferences(API_RESPONSE_SHARED_FILE, MODE_PRIVATE)
+            .getInt(AUTHENTICATED_ID, 0)
         ApiRepository.createRetrofitWithAuth(token!!)
 
         lifecycleScope.launch {

@@ -29,7 +29,6 @@ import splitties.toast.toast
 class TaskAdapter(private val myTasksList: List<TaskModel>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     val repo = ApiRepository
-    private var dialog: ProgressDialog? = null
     private var tasksList = myTasksList.toMutableList()
 
     @RequiresApi

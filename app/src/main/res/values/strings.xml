@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Список задач</string>
-    <string name="enter_login">Введите логин</string>
+    <string name="enter_email">Введите email</string>
     <string name="enter_password">Введите пароль</string>
     <string name="btn_login">Вход</string>
     <string name="btn_registration">Регистрация</string>
@@ -9,7 +9,7 @@
     <string name="edit_password_repeat">Повторите пароль</string>
     <string name="success">Добро пожаловать!</string>
     <string name="authentication_failed">Неправельный логин или пароль!</string>
-    <string name="registration_failed">Такой логин уже существует</string>
+    <string name="registration_failed">Такой email уже существует</string>
     <string name="auth_label">Авторизация</string>
     <string name="reg_label">Регистрация</string>
     <string name="good_reg">Успешная регистрация</string>
@@ -35,6 +35,7 @@
     <string name="no">Нет</string>
     <string name="canceled">Отменено</string>
     <string name="deleted">Удалено</string>
+    <string name="error_email_not_same">Введите корректный email</string>
 
 
 </resources>
